@@ -2,54 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Professional Financial Analyst | Investor</title>
+<title>TOLIT EDWIN TIMOTHY | Financial Analyst & Investor</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- TradingView -->
+<script src="https://s3.tradingview.com/tv.js"></script>
+
 <style>
+/* ===== GLOBAL ===== */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: #0b1220;
+    background: #020617;
     color: #e5e7eb;
+    overflow-x: hidden;
 }
 
+/* ===== ANIMATED BACKGROUND ===== */
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(56,189,248,0.15), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(34,197,94,0.12), transparent 40%);
+    animation: move 12s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes move {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(30deg); }
+}
+
+/* ===== HEADER ===== */
 header {
-    background: linear-gradient(135deg, #020617, #020617);
-    padding: 60px 20px;
     text-align: center;
+    padding: 80px 20px 60px;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 36px;
     color: #38bdf8;
+    font-size: 42px;
+    margin: 0;
 }
 
 header p {
-    max-width: 700px;
+    max-width: 850px;
     margin: 15px auto;
     font-size: 18px;
     color: #cbd5f5;
 }
 
+/* ===== SECTIONS ===== */
 section {
-    padding: 60px 20px;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: auto;
-}
-
-.profile {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 40px;
-    align-items: center;
-}
-
-.profile img {
-    width: 100%;
-    max-width: 260px;
-    border-radius: 12px;
-    border: 2px solid #38bdf8;
+    padding: 50px 20px;
 }
 
 h2 {
@@ -57,138 +65,194 @@ h2 {
     margin-bottom: 15px;
 }
 
-.cards {
+/* ===== CARDS ===== */
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
 }
 
 .card {
-    background: #020617;
+    background: rgba(2,6,23,0.9);
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: 1px solid rgba(56,189,248,0.15);
 }
 
-iframe {
-    width: 100%;
-    height: 420px;
-    border: none;
-    border-radius: 10px;
+/* ===== CHART GRID ===== */
+.charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-.contact {
-    background: #020617;
-    border-radius: 10px;
-    padding: 30px;
+.tradingview-widget-container {
+    height: 260px;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 6px;
-    border: none;
-}
-
-button {
-    margin-top: 15px;
-    padding: 12px;
-    background: #38bdf8;
-    border: none;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 30px;
     font-size: 14px;
-    background: #020617;
     color: #94a3b8;
+    background: #020617;
 }
 </style>
 </head>
 
 <body>
+<div class="background"></div>
 
 <header>
-    <h1>Your Name</h1>
-    <p>Professional Financial Analyst & Investor  
-    | Forex • Commodities • Equities • Government Bonds</p>
+    <h1>TOLIT EDWIN TIMOTHY</h1>
+    <p>
+        Professional Financial Analyst & Investor<br>
+        Inner Circle Trading Concepts (ICT) • Macroeconomic Research •
+        Forex • Commodities • Equities • Government Bonds
+    </p>
 </header>
 
-<section class="profile">
-    <img src="your-photo.jpg" alt="Professional Photo">
-
-    <div>
-        <h2>About Me</h2>
-        <p>
-            I am a professional financial analyst and investor specializing in
-            foreign exchange markets, commodities, equity shares, and government
-            bonds. My approach combines macroeconomic analysis, technical structure,
-            and disciplined risk management to navigate global markets.
-        </p>
-    </div>
-</section>
-
 <section>
-    <h2>Market Expertise</h2>
-    <div class="cards">
+    <h2>Professional Profile</h2>
+    <div class="grid">
         <div class="card">
-            <h3>Foreign Exchange</h3>
-            <p>Major, minor, and cross currency analysis with liquidity-based execution.</p>
+            <h3>Market Specialization</h3>
+            <p>
+                Advanced application of Inner Circle Trading Concepts for
+                institutional-grade market structure analysis and execution.
+            </p>
         </div>
+
         <div class="card">
-            <h3>Commodities</h3>
-            <p>Gold, Oil, and strategic commodities for hedging and capital protection.</p>
+            <h3>Macroeconomic Research</h3>
+            <p>
+                In-depth research on global macroeconomic developments,
+                central bank policy, yield curves, and capital flows.
+            </p>
         </div>
+
         <div class="card">
-            <h3>Equities</h3>
-            <p>Long-term equity investment based on valuation and economic cycles.</p>
-        </div>
-        <div class="card">
-            <h3>Government Bonds</h3>
-            <p>Fixed-income exposure for stability and yield optimization.</p>
+            <h3>Investment Scope</h3>
+            <p>
+                Foreign exchange, commodities, equity shares,
+                and government bonds with disciplined risk management.
+            </p>
         </div>
     </div>
 </section>
 
 <section>
     <h2>Live Market Charts</h2>
+    <div class="charts">
 
-    <!-- Forex -->
-    <iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=FX:EURUSD&interval=60&theme=dark"></iframe>
+        <!-- EURUSD -->
+        <div class="tradingview-widget-container">
+            <div id="chart1"></div>
+        </div>
 
-    <br><br>
+        <!-- GOLD -->
+        <div class="tradingview-widget-container">
+            <div id="chart2"></div>
+        </div>
 
-    <!-- Gold -->
-    <iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=COMEX:GC1!&interval=60&theme=dark"></iframe>
+        <!-- SP500 -->
+        <div class="tradingview-widget-container">
+            <div id="chart3"></div>
+        </div>
 
-    <br><br>
+        <!-- OIL -->
+        <div class="tradingview-widget-container">
+            <div id="chart4"></div>
+        </div>
 
-    <!-- Equity Index -->
-    <iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=SP:SPX&interval=60&theme=dark"></iframe>
+    </div>
 </section>
 
 <section>
-    <h2>Contact</h2>
-    <div class="contact">
-        <p>For professional inquiries, analysis requests, or investment discussions:</p>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Email Address">
-        <textarea rows="4" placeholder="Message"></textarea>
-        <button>Send Message</button>
-        <p style="font-size:13px; color:#94a3b8;">
-            (Form ready — email integration can be added later)
-        </p>
+    <h2>Market Tools</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Oscillators</h3>
+            <p>RSI • MACD • Stochastic integrated into live charts.</p>
+        </div>
+        <div class="card">
+            <h3>Market Watchlist</h3>
+            <p>Forex majors, commodities, indices, and bonds.</p>
+        </div>
+        <div class="card">
+            <h3>Market News</h3>
+            <p>Live macroeconomic and financial news updates.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Market News</h2>
+    <div class="card">
+        <div class="tradingview-widget-container">
+            <div id="news"></div>
+        </div>
     </div>
 </section>
 
 <footer>
-    © 2026 | Professional Financial Analyst & Investor  
-    <br>Markets are risky — analysis is not financial advice.
+    © 2026 TOLIT EDWIN TIMOTHY<br>
+    Markets involve risk — this website is for educational and analytical purposes.
 </footer>
+
+<script>
+new TradingView.widget({
+    container_id: "chart1",
+    symbol: "FX:EURUSD",
+    interval: "60",
+    theme: "dark",
+    style: "1",
+    studies: ["RSI@tv-basicstudies", "MACD@tv-basicstudies"],
+    autosize: true
+});
+
+new TradingView.widget({
+    container_id: "chart2",
+    symbol: "COMEX:GC1!",
+    interval: "60",
+    theme: "dark",
+    style: "1",
+    studies: ["RSI@tv-basicstudies"],
+    autosize: true
+});
+
+new TradingView.widget({
+    container_id: "chart3",
+    symbol: "SP:SPX",
+    interval: "60",
+    theme: "dark",
+    style: "1",
+    autosize: true
+});
+
+new TradingView.widget({
+    container_id: "chart4",
+    symbol: "NYMEX:CL1!",
+    interval: "60",
+    theme: "dark",
+    style: "1",
+    autosize: true
+});
+
+new TradingView.widget({
+    container_id: "news",
+    width: "100%",
+    height: 400,
+    theme: "dark",
+    locale: "en",
+    feedMode: "all_symbols"
+});
+</script>
 
 </body>
 </html>
+
+

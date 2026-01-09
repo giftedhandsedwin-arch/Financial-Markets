@@ -1,147 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Financial Markets Hub</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Professional Financial Analyst | Investor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: #e5e7eb;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0b1220;
+    color: #e5e7eb;
+}
 
-        header {
-            background: #020617;
-            padding: 20px;
-            text-align: center;
-        }
+header {
+    background: linear-gradient(135deg, #020617, #020617);
+    padding: 60px 20px;
+    text-align: center;
+}
 
-        header h1 {
-            margin: 0;
-            color: #38bdf8;
-        }
+header h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #38bdf8;
+}
 
-        nav {
-            background: #020617;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px;
-        }
+header p {
+    max-width: 700px;
+    margin: 15px auto;
+    font-size: 18px;
+    color: #cbd5f5;
+}
 
-        nav a {
-            color: #e5e7eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
+section {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
 
-        nav a:hover {
-            color: #38bdf8;
-        }
+.profile {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: center;
+}
 
-        .hero {
-            padding: 60px 20px;
-            text-align: center;
-        }
+.profile img {
+    width: 100%;
+    max-width: 260px;
+    border-radius: 12px;
+    border: 2px solid #38bdf8;
+}
 
-        .hero h2 {
-            color: #38bdf8;
-        }
+h2 {
+    color: #38bdf8;
+    margin-bottom: 15px;
+}
 
-        .sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 40px;
-        }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
 
-        .card {
-            background: #020617;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.4);
-        }
+.card {
+    background: #020617;
+    padding: 25px;
+    border-radius: 10px;
+}
 
-        .card h3 {
-            color: #38bdf8;
-        }
+iframe {
+    width: 100%;
+    height: 420px;
+    border: none;
+    border-radius: 10px;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-            font-size: 14px;
-        }
+.contact {
+    background: #020617;
+    border-radius: 10px;
+    padding: 30px;
+}
 
-        button {
-            background: #38bdf8;
-            border: none;
-            padding: 10px 15px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: none;
+}
 
-        button:hover {
-            background: #0ea5e9;
-        }
-    </style>
+button {
+    margin-top: 15px;
+    padding: 12px;
+    background: #38bdf8;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    background: #020617;
+    color: #94a3b8;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Financial Markets Hub</h1>
-    <p>Forex • Stocks • Crypto • Commodities</p>
+    <h1>Your Name</h1>
+    <p>Professional Financial Analyst & Investor  
+    | Forex • Commodities • Equities • Government Bonds</p>
 </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Markets</a>
-    <a href="#">Analysis</a>
-    <a href="#">Education</a>
-</nav>
+<section class="profile">
+    <img src="your-photo.jpg" alt="Professional Photo">
 
-<section class="hero">
-    <h2>Understand the Global Markets</h2>
-    <p>Trade with knowledge, discipline, and strategy.</p>
-    <button onclick="showMessage()">Market Insight</button>
+    <div>
+        <h2>About Me</h2>
+        <p>
+            I am a professional financial analyst and investor specializing in
+            foreign exchange markets, commodities, equity shares, and government
+            bonds. My approach combines macroeconomic analysis, technical structure,
+            and disciplined risk management to navigate global markets.
+        </p>
+    </div>
 </section>
 
-<section class="sections">
-    <div class="card">
-        <h3>Forex</h3>
-        <p>Trade major, minor, and exotic currency pairs with deep liquidity.</p>
+<section>
+    <h2>Market Expertise</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Foreign Exchange</h3>
+            <p>Major, minor, and cross currency analysis with liquidity-based execution.</p>
+        </div>
+        <div class="card">
+            <h3>Commodities</h3>
+            <p>Gold, Oil, and strategic commodities for hedging and capital protection.</p>
+        </div>
+        <div class="card">
+            <h3>Equities</h3>
+            <p>Long-term equity investment based on valuation and economic cycles.</p>
+        </div>
+        <div class="card">
+            <h3>Government Bonds</h3>
+            <p>Fixed-income exposure for stability and yield optimization.</p>
+        </div>
     </div>
+</section>
 
-    <div class="card">
-        <h3>Stocks</h3>
-        <p>Invest in global companies across different sectors.</p>
-    </div>
+<section>
+    <h2>Live Market Charts</h2>
 
-    <div class="card">
-        <h3>Crypto</h3>
-        <p>Explore Bitcoin, Ethereum, and blockchain-based assets.</p>
-    </div>
+    <!-- Forex -->
+    <iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=FX:EURUSD&interval=60&theme=dark"></iframe>
 
-    <div class="card">
-        <h3>Commodities</h3>
-        <p>Gold, Oil, and agricultural products as hedging instruments.</p>
+    <br><br>
+
+    <!-- Gold -->
+    <iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=COMEX:GC1!&interval=60&theme=dark"></iframe>
+
+    <br><br>
+
+    <!-- Equity Index -->
+    <iframe src="https://s.tradingview.com/embed-widget/advanced-chart/?symbol=SP:SPX&interval=60&theme=dark"></iframe>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <div class="contact">
+        <p>For professional inquiries, analysis requests, or investment discussions:</p>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Email Address">
+        <textarea rows="4" placeholder="Message"></textarea>
+        <button>Send Message</button>
+        <p style="font-size:13px; color:#94a3b8;">
+            (Form ready — email integration can be added later)
+        </p>
     </div>
 </section>
 
 <footer>
-    © 2026 Financial Markets Hub | Knowledge is Capital
+    © 2026 | Professional Financial Analyst & Investor  
+    <br>Markets are risky — analysis is not financial advice.
 </footer>
-
-<script>
-    function showMessage() {
-        alert("Risk management is more important than profits.");
-    }
-</script>
 
 </body>
 </html>

@@ -1,258 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TOLIT EDWIN TIMOTHY | Financial Analyst & Investor</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Markets Hub</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow-x: hidden;
+            background-color: #0a0a0c;
+        }
 
-<!-- TradingView -->
-<script src="https://s3.tradingview.com/tv.js"></script>
+        /* Interactive Canvas Styling */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
-<style>
-/* ===== GLOBAL ===== */
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: #020617;
-    color: #e5e7eb;
-    overflow-x: hidden;
-}
+        /* Layout Sections */
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            min-height: 100vh;
+        }
 
-/* ===== ANIMATED BACKGROUND ===== */
-.background {
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(circle at 20% 30%, rgba(56,189,248,0.15), transparent 40%),
-      radial-gradient(circle at 80% 70%, rgba(34,197,94,0.12), transparent 40%);
-    animation: move 12s infinite alternate;
-    z-index: -1;
-}
+        header {
+            text-align: center;
+            padding: 50px 0;
+        }
 
-@keyframes move {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(30deg); }
-}
+        .chart-container {
+            width: 100%;
+            height: 400px;
+            margin: 30px 0;
+            border: 1px solid #444;
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-/* ===== HEADER ===== */
-header {
-    text-align: center;
-    padding: 80px 20px 60px;
-}
+        section {
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
 
-header h1 {
-    color: #38bdf8;
-    font-size: 42px;
-    margin: 0;
-}
+        h2 {
+            color: #00d4ff;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
 
-header p {
-    max-width: 850px;
-    margin: 15px auto;
-    font-size: 18px;
-    color: #cbd5f5;
-}
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+        }
 
-/* ===== SECTIONS ===== */
-section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 50px 20px;
-}
+        input, textarea, button {
+            padding: 12px;
+            border-radius: 4px;
+            border: none;
+            background: #222;
+            color: white;
+        }
 
-h2 {
-    color: #38bdf8;
-    margin-bottom: 15px;
-}
+        button {
+            background: #00d4ff;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-/* ===== CARDS ===== */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-}
+        button:hover {
+            background: #0099bb;
+        }
 
-.card {
-    background: rgba(2,6,23,0.9);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid rgba(56,189,248,0.15);
-}
-
-/* ===== CHART GRID ===== */
-.charts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.tradingview-widget-container {
-    height: 260px;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-/* ===== FOOTER ===== */
-footer {
-    text-align: center;
-    padding: 30px;
-    font-size: 14px;
-    color: #94a3b8;
-    background: #020617;
-}
-</style>
+        .disclaimer {
+            font-size: 0.85rem;
+            color: #888;
+            padding: 20px;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+    </style>
 </head>
-
 <body>
-<div class="background"></div>
 
-<header>
-    <h1>TOLIT EDWIN TIMOTHY</h1>
-    <p>
-        Professional Financial Analyst & Investor<br>
-        Inner Circle Trading Concepts (ICT) • Macroeconomic Research •
-        Forex • Commodities • Equities • Government Bonds
-    </p>
-</header>
+    <div id="canvas-container"></div>
 
-<section>
-    <h2>Professional Profile</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Market Specialization</h3>
+    <div class="content-wrapper">
+        <header>
+            <h1>Global Market Insights</h1>
+            <p>Real-time data meets interactive design.</p>
+        </header>
+
+        <div class="chart-container">
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+                <div id="tradingview_12345" style="height:calc(100% - 32px);width:100%"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                <script type="text/javascript">
+                new TradingView.widget({
+                    "autosize": true,
+                    "symbol": "NASDAQ:AAPL",
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "en",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "hide_top_toolbar": true,
+                    "save_image": false,
+                    "container_id": "tradingview_12345"
+                });
+                </script>
+            </div>
+            </div>
+
+        <section>
+            <h2>The Origin of Financial Markets</h2>
             <p>
-                Advanced application of Inner Circle Trading Concepts for
-                institutional-grade market structure analysis and execution.
+                The roots of modern financial markets date back to the 11th century, but the first recognizable stock exchange was established in 1602 by the <strong>Dutch East India Company (VOC)</strong> in Amsterdam. 
+                Before this, "brokers" met in coffee houses or town squares to trade debts and commodities. The 17th-century Amsterdam exchange introduced the ability for the general public to buy shares and receive dividends, 
+                effectively bircing the concept of public equity.
             </p>
-        </div>
+        </section>
 
-        <div class="card">
-            <h3>Macroeconomic Research</h3>
-            <p>
-                In-depth research on global macroeconomic developments,
-                central bank policy, yield curves, and capital flows.
-            </p>
-        </div>
+        <section>
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Your Message" rows="4"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
 
-        <div class="card">
-            <h3>Investment Scope</h3>
-            <p>
-                Foreign exchange, commodities, equity shares,
-                and government bonds with disciplined risk management.
-            </p>
-        </div>
+        <footer class="disclaimer">
+            <strong>DISCLAIMER:</strong> Trading financial instruments involves high risk. The data provided on this site is for educational purposes only and does not constitute financial advice. Past performance is not indicative of future results.
+        </footer>
     </div>
-</section>
 
-<section>
-    <h2>Live Market Charts</h2>
-    <div class="charts">
+    <script>
+        let particles = [];
 
-        <!-- EURUSD -->
-        <div class="tradingview-widget-container">
-            <div id="chart1"></div>
-        </div>
+        function setup() {
+            let canvas = createCanvas(windowWidth, windowHeight);
+            canvas.parent('canvas-container');
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle());
+            }
+        }
 
-        <!-- GOLD -->
-        <div class="tradingview-widget-container">
-            <div id="chart2"></div>
-        </div>
+        function draw() {
+            clear();
+            background(10, 10, 12, 150);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+                p.connect(particles);
+            });
+        }
 
-        <!-- SP500 -->
-        <div class="tradingview-widget-container">
-            <div id="chart3"></div>
-        </div>
+        class Particle {
+            constructor() {
+                this.pos = createVector(random(width), random(height));
+                this.vel = createVector(random(-0.5, 0.5), random(-0.5, 0.5));
+                this.size = 4;
+            }
 
-        <!-- OIL -->
-        <div class="tradingview-widget-container">
-            <div id="chart4"></div>
-        </div>
+            update() {
+                this.pos.add(this.vel);
+                if (this.pos.x > width || this.pos.x < 0) this.vel.x *= -1;
+                if (this.pos.y > height || this.pos.y < 0) this.vel.y *= -1;
 
-    </div>
-</section>
+                // Interact with Mouse
+                let mouse = createVector(mouseX, mouseY);
+                let distToMouse = p5.Vector.dist(this.pos, mouse);
+                if (distToMouse < 150) {
+                    let force = p5.Vector.sub(this.pos, mouse);
+                    force.setMag(0.2);
+                    this.pos.add(force);
+                }
+            }
 
-<section>
-    <h2>Market Tools</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>Oscillators</h3>
-            <p>RSI • MACD • Stochastic integrated into live charts.</p>
-        </div>
-        <div class="card">
-            <h3>Market Watchlist</h3>
-            <p>Forex majors, commodities, indices, and bonds.</p>
-        </div>
-        <div class="card">
-            <h3>Market News</h3>
-            <p>Live macroeconomic and financial news updates.</p>
-        </div>
-    </div>
-</section>
+            draw() {
+                noStroke();
+                fill(0, 212, 255, 150);
+                circle(this.pos.x, this.pos.y, this.size);
+            }
 
-<section>
-    <h2>Market News</h2>
-    <div class="card">
-        <div class="tradingview-widget-container">
-            <div id="news"></div>
-        </div>
-    </div>
-</section>
+            connect(others) {
+                others.forEach(other => {
+                    let d = dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
+                    if (d < 120) {
+                        stroke(0, 212, 255, map(d, 0, 120, 100, 0));
+                        strokeWeight(1);
+                        line(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
+                    }
+                });
+            }
+        }
 
-<footer>
-    © 2026 TOLIT EDWIN TIMOTHY<br>
-    Markets involve risk — this website is for educational and analytical purposes.
-</footer>
-
-<script>
-new TradingView.widget({
-    container_id: "chart1",
-    symbol: "FX:EURUSD",
-    interval: "60",
-    theme: "dark",
-    style: "1",
-    studies: ["RSI@tv-basicstudies", "MACD@tv-basicstudies"],
-    autosize: true
-});
-
-new TradingView.widget({
-    container_id: "chart2",
-    symbol: "COMEX:GC1!",
-    interval: "60",
-    theme: "dark",
-    style: "1",
-    studies: ["RSI@tv-basicstudies"],
-    autosize: true
-});
-
-new TradingView.widget({
-    container_id: "chart3",
-    symbol: "SP:SPX",
-    interval: "60",
-    theme: "dark",
-    style: "1",
-    autosize: true
-});
-
-new TradingView.widget({
-    container_id: "chart4",
-    symbol: "NYMEX:CL1!",
-    interval: "60",
-    theme: "dark",
-    style: "1",
-    autosize: true
-});
-
-new TradingView.widget({
-    container_id: "news",
-    width: "100%",
-    height: 400,
-    theme: "dark",
-    locale: "en",
-    feedMode: "all_symbols"
-});
-</script>
-
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+        }
+    </script>
 </body>
 </html>
+
+
 
 
